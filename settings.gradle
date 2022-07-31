@@ -14,3 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "CodeWorld"
 include ':app'
+include ':lib'
+include ':module'
+include ':lib:common'
+include ':module:login'
