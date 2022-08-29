@@ -3,7 +3,6 @@ package com.agilezhu.codeworld
 import android.util.Log
 import com.agilezhu.common.GlobalConstant
 import com.agilezhu.common.base.BaseApplication
-import com.agilezhu.login.LoginApplication
 
 class MainApplication : BaseApplication() {
 
@@ -13,7 +12,7 @@ class MainApplication : BaseApplication() {
     }
 
     override fun onRegisterModuleApplication() {
-        registerApplication(LoginApplication::class.java)
+        registerApplication("com.agilezhu.login.LoginApplication")
     }
 
 }

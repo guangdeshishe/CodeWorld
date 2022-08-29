@@ -6,7 +6,10 @@ import android.content.res.Configuration
 import android.util.Log
 import com.agilezhu.common.BuildConfig
 import com.agilezhu.common.GlobalConstant
+import com.agilezhu.common.util.QToast
+import com.agilezhu.store.greendao.DBManager
 import com.alibaba.android.arouter.launcher.ARouter
+import org.joor.Reflect
 
 abstract class BaseApplication : Application() {
     val mModuleApplications = ArrayList<BaseModuleApplication>()
@@ -19,12 +22,20 @@ abstract class BaseApplication : Application() {
             ARouter.openLog();     // Print log
             ARouter.openDebug();   // Turn on debugging mode (If you are running in InstantRun mode, you must turn on debug mode! Online version needs to be closed, otherwise there is a security risk)
         }
-        ARouter.init(this);
+        ARouter.init(this)
+        DBManager.instance.init(this)
+        QToast.init(this)
     }
 
-    fun registerApplication(clazz: Class<out BaseModuleApplication>) {
-        Log.i(GlobalConstant.TAG, "registerApplication: " + clazz.simpleName)
-        val moduleApplication = clazz.newInstance()
+    fun registerApplication(className: String) {
+        Log.i(GlobalConstant.TAG, "registerApplication: " + className)
+        val moduleApplication: BaseModuleApplication
+        try {
+            moduleApplication = Reflect.on(className).create().get()
+        } catch (exception: Exception) {
+            Log.i(GlobalConstant.TAG, "Application not found: " + className)
+            return
+        }
         moduleApplication.mApplication = this
         moduleApplication.onCreate()
         mModuleApplications.add(moduleApplication)

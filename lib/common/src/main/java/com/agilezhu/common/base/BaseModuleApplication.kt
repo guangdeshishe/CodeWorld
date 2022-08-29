@@ -7,7 +7,7 @@ import android.util.Log
 import com.agilezhu.common.GlobalConstant
 
 /**
- * Base Application logic
+ * Base Application logic for each Module
  */
 open class BaseModuleApplication {
     lateinit var mApplication: BaseApplication
