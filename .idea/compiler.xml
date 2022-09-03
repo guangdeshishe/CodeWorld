@@ -24,6 +24,7 @@
       <module name="CodeWorld.app" target="11" />
       <module name="CodeWorld.lib" target="11" />
       <module name="CodeWorld.lib.common" target="11" />
+      <module name="CodeWorld.lib.network" target="11" />
       <module name="CodeWorld.lib.store" target="11" />
       <module name="CodeWorld.module" target="11" />
       <module name="CodeWorld.module.login" target="11" />

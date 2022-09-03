@@ -13,3 +13,16 @@ plugins {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    isModule = true
+    compileSdk = 31
+    minSdk = 21
+    targetSdk = 31
+    versionCode = 1
+    versionName = "1.0"
+    jvmTarget = '1.8'
+
+    //hilt
+    hiltVersion = '2.28-alpha'
+}
