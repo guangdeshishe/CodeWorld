@@ -7,20 +7,17 @@ import com.agilezhu.network.processor.VolleyProcessor
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
-import javax.inject.Singleton
+import dagger.hilt.components.SingletonComponent
 
 @Module
-@InstallIn(ApplicationComponent::class)
-open abstract class HttpProcessorModule {
+@InstallIn(SingletonComponent::class)
+abstract class HttpProcessorModule {
 
     @BindOkHttp
     @Binds
-    @Singleton
-    abstract fun bindOkHttp(okHttpProcessor: OkHttpProcessor)
+    abstract fun bindOkHttp(okHttpProcessor: OkHttpProcessor): IHttpProcessor
 
     @BindVolley
     @Binds
-    @Singleton
-    abstract fun bindVolley(volleyProcessor: VolleyProcessor)
+    abstract fun bindVolley(volleyProcessor: VolleyProcessor): IHttpProcessor
 }

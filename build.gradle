@@ -2,6 +2,7 @@
 buildscript {
     dependencies {
         classpath 'org.greenrobot:greendao-gradle-plugin:3.3.0' // add plugin
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.28-alpha'
     }
 }
 plugins {
@@ -24,5 +25,7 @@ ext {
     jvmTarget = '1.8'
 
     //hilt
-    hiltVersion = '2.28-alpha'
+    hiltVersion = '2.37'
+
+    okhttp = "4.9.1"
 }
