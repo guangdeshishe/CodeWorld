@@ -11,7 +11,7 @@ import javax.inject.Singleton
 
 @Singleton
 open class OkHttpProcessor @Inject constructor() : IHttpProcessor {
-    private val mOkHttpClient = OkHttpClient.Builder().addInterceptor(OkHttpLogInterceptor()).build()
+    private val mOkHttpClient = OkHttpManager.client
     private val mMainHandler = Handler(Looper.getMainLooper())
 
     override fun post(url: String, params: Map<String, Any>, callback: IHttpCallback) {

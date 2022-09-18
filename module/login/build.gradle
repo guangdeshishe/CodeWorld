@@ -67,6 +67,8 @@ dependencies {
     api(project(":lib:common"))
     kapt project(path: ':lib:processor')
 
+    implementation(project(":lib:network"))
+
     def arouterVersion = "1.5.2"
     kapt "com.alibaba:arouter-compiler:$arouterVersion"
 
